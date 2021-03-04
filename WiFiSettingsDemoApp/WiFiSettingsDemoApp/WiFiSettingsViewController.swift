@@ -71,7 +71,11 @@ class WiFiSettingsViewController: UIViewController {
 extension WiFiSettingsViewController {
     
     func configureDataSource() {
-        self.wifiController = WiFiController()
+
+        self.wifiController = WiFiController { [weak self] (controller: WiFiController) in
+            guard let self = self else { return }
+            self.updateUI(animated: true)
+        }
         
         self.dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { [weak self] (tableView: UITableView, indexPath: IndexPath, item: Item) -> UITableViewCell? in
             guard let self = self, let wifiController = self.wifiController else { return nil }
