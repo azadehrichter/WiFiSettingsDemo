@@ -26,6 +26,7 @@ class WiFiController {
         updateAvailableNetworks(allNetworks)
     }
 
+    var wifiEnabled = true
     var availableNetworks: Set<Network> {
         _availableNetworks
     }
