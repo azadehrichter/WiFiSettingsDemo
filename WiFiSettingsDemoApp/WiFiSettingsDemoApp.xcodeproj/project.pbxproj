@@ -15,6 +15,7 @@
 		EC0CF8B025EF8A1900B016F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0CF8AE25EF8A1900B016F9 /* LaunchScreen.storyboard */; };
 		EC0CF8BB25EF8A1A00B016F9 /* WiFiSettingsDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CF8BA25EF8A1A00B016F9 /* WiFiSettingsDemoAppTests.swift */; };
 		EC0CF8C625EF8A1A00B016F9 /* WiFiSettingsDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CF8C525EF8A1A00B016F9 /* WiFiSettingsDemoAppUITests.swift */; };
+		EC0CF8DA25EFD39B00B016F9 /* WiFiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0CF8D925EFD39B00B016F9 /* WiFiController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EC0CF8C125EF8A1A00B016F9 /* WiFiSettingsDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WiFiSettingsDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0CF8C525EF8A1A00B016F9 /* WiFiSettingsDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSettingsDemoAppUITests.swift; sourceTree = "<group>"; };
 		EC0CF8C725EF8A1A00B016F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC0CF8D925EFD39B00B016F9 /* WiFiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				EC0CF8AC25EF8A1900B016F9 /* Assets.xcassets */,
 				EC0CF8AE25EF8A1900B016F9 /* LaunchScreen.storyboard */,
 				EC0CF8B125EF8A1900B016F9 /* Info.plist */,
+				EC0CF8D925EFD39B00B016F9 /* WiFiController.swift */,
 			);
 			path = WiFiSettingsDemoApp;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				EC0CF8A825EF8A1700B016F9 /* WiFiSettingsViewController.swift in Sources */,
 				EC0CF8A425EF8A1700B016F9 /* AppDelegate.swift in Sources */,
+				EC0CF8DA25EFD39B00B016F9 /* WiFiController.swift in Sources */,
 				EC0CF8A625EF8A1700B016F9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

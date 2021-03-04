@@ -27,6 +27,12 @@ class WiFiSettingsViewController: UIViewController {
             self.identifier = UUID()
         }
         
+        init(network: WiFiController.Network) {
+            self.title = network.name
+            self.type = .availableNetwork
+            self.identifier = network.identifier
+        }
+        
         private let identifier: UUID
         func hash(into hasher: inout Hasher) {
             hasher.combine(self.identifier)
@@ -35,6 +41,8 @@ class WiFiSettingsViewController: UIViewController {
     
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     var dataSource: UITableViewDiffableDataSource<Section, Item>! = nil
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Item>! = nil
+    var wifiController: WiFiController! = nil
     
     static let reuseIdentifier = "reuse-identifier"
     
@@ -43,15 +51,16 @@ class WiFiSettingsViewController: UIViewController {
         navigationItem.title = "Wi-Fi"
         configureTableView()
         configureDataSource()
+        updateUI(animated: true)
     }
-
-
 }
 
 // MARK: - Table View extension
 extension WiFiSettingsViewController {
     
     func configureDataSource() {
+        wifiController = WiFiController()
+        
         self.dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { (tableView: UITableView, indexPath: IndexPath, item: Item) -> UITableViewCell? in
             // Dequeue cell
             let cell = tableView.dequeueReusableCell(withIdentifier: WiFiSettingsViewController.reuseIdentifier, for: indexPath)
@@ -65,6 +74,19 @@ extension WiFiSettingsViewController {
         })
         
         self.dataSource.defaultRowAnimation = .fade
+    }
+    
+    func updateUI(animated: Bool) {
+        guard let controller = self.wifiController else { return }
+        
+        currentSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        
+        let sortedNetworks = controller.availableNetworks.sorted { $0.name < $1.name }
+        let networkItems = sortedNetworks.map { Item(network: $0) }
+        currentSnapshot.appendSections([.networks])
+        currentSnapshot.appendItems(networkItems, toSection: .networks)
+        
+        dataSource.apply(currentSnapshot, animatingDifferences: animated)
     }
 }
 
