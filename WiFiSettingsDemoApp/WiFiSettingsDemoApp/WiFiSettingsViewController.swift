@@ -63,6 +63,10 @@ class WiFiSettingsViewController: UIViewController {
         navigationItem.title = "Wi-Fi"
         configureTableView()
         configureDataSource()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         updateUI(animated: true)
     }
 }
